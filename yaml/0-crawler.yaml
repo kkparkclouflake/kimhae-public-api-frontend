@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+ name: crawler
+ namespace: kimhae
+spec:
+ jobTemplate:
+  spec:
+   template:
+    spec:
+     containers:
+      - command: ~
+        image: "172.30.1.70/kimhae/crawler:0.0.1"
+        imagePullPolicy: IfNotPresent
+        name: crawler
+     imagePullSecrets:
+     - name: harbor
+     restartPolicy: OnFailure
+ schedule: "*/5 * * * *"
