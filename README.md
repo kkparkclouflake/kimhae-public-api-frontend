@@ -29,7 +29,7 @@ API sample
 
 ## 프로젝트 구성도
 
-![](.\image\구성도.png)
+![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/구성도.png)
 
 
 
@@ -76,7 +76,7 @@ items = targetDb.find()
 
 
 
-![](.\image\crawler.png)
+![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/crawler.png)
 
 ---
 
@@ -271,12 +271,12 @@ spec:
 
 Pod 정보
 
-![](.\image\get pod.png)
+![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/get pod.png)
 
 Service 정보
 
-![](.\image\get service.png)
+![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/get service.png)
 
 Frontend 연동 결과
 
-![](.\image\result.png)
+![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/result.png)
