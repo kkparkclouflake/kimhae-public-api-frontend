@@ -29,7 +29,7 @@ API sample
 
 ## 프로젝트 구성도
 
-![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/구성도.png)
+![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/system.png)
 
 
 
@@ -271,11 +271,11 @@ spec:
 
 Pod 정보
 
-![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/get pod.png)
+![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/getpod.png)
 
 Service 정보
 
-![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/get service.png)
+![](https://raw.githubusercontent.com/kkparkclouflake/kimhae-public-api-frontend/main/image/getservice.png)
 
 Frontend 연동 결과
 
