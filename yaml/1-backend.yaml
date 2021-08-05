@@ -1,15 +1,11 @@
-apiVersion: v1
-kind: Namespace
-metadata:
- name: kimhae
 ---
 apiVersion: v1
 data:
-  .dockerconfigjson: eyJhdXRocyI6eyIxNzIuMzAuMS43MCI6eyJ1c2VybmFtZSI6Im1oY2hvIiwicGFzc3dvcmQiOiIxUTJ3M2U0ciIsImVtYWlsIjoibWhjaG9AY2xvdWZsYWtlLmNvbSIsImF1dGgiOiJiV2hqYUc4Nk1WRXlkek5sTkhJPSJ9fX0=
+ .dockerconfigjson: eyJhdXRocyI6eyIxNzIuMzAuMS43MCI6eyJ1c2VybmFtZSI6Im1oY2hvIiwicGFzc3dvcmQiOiIxUTJ3M2U0ciIsImVtYWlsIjoibWhjaG9AY2xvdWZsYWtlLmNvbSIsImF1dGgiOiJiV2hqYUc4Nk1WRXlkek5sTkhJPSJ9fX0=
 kind: Secret
 metadata:
-  name: harbor
-  namespace: kimhae
+ name: harbor
+ namespace: kimhae
 type: kubernetes.io/dockerconfigjson
 ---
 apiVersion: apps/v1
@@ -18,33 +14,36 @@ metadata:
  name: dbserver
  namespace: kimhae
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: dbserver 
-  template:
-    metadata:
-      labels:
-        app: dbserver
-    spec:
-      containers:
-      - image: "172.30.1.70/kimhae/dbserver:0.0.1"
-        name: dbserver
-        ports:
-        - containerPort: 5000
-      imagePullSecrets:
-      - name: harbor
+ replicas: 2
+ selector:
+  matchLabels:
+   app: dbserver
+ template:
+  metadata:
+   labels:
+    app: dbserver
+  spec:
+   containers:
+    - image: "172.30.1.70/kimhae/dbserver:0.1.1"
+      name: dbserver
+      ports:
+       - containerPort: 5000
+      envFrom:
+       - configMapRef:
+          name: db-config
+   imagePullSecrets:
+    - name: harbor
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: dbserver-service
-  namespace: kimhae
+ name: dbserver-service
+ namespace: kimhae
 spec:
-  type: ClusterIP
-  selector: 
-    app: dbserver
-  ports:
-    - protocol: TCP
-      port: 5000
-      targetPort: 5000
+ type: ClusterIP
+ selector:
+  app: dbserver
+ ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
