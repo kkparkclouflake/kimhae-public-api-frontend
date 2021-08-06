@@ -1,13 +1,4 @@
 ---
-apiVersion: v1
-data:
- .dockerconfigjson: eyJhdXRocyI6eyIxNzIuMzAuMS43MCI6eyJ1c2VybmFtZSI6Im1oY2hvIiwicGFzc3dvcmQiOiIxUTJ3M2U0ciIsImVtYWlsIjoibWhjaG9AY2xvdWZsYWtlLmNvbSIsImF1dGgiOiJiV2hqYUc4Nk1WRXlkek5sTkhJPSJ9fX0=
-kind: Secret
-metadata:
- name: harbor
- namespace: kimhae
-type: kubernetes.io/dockerconfigjson
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
