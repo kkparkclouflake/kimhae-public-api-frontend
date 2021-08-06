@@ -1,5 +1,5 @@
 FROM node as build-stage
-MAINTAINER kkpark@clouflake.com
+LABEL authors="박경규 <kkpark@clouflake.com"
 WORKDIR /
 ADD . .
 RUN yarn install

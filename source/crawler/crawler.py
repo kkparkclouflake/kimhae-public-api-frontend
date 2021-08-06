@@ -1,3 +1,4 @@
+import os
 import requests
 import json
 import pymongo 
@@ -13,10 +14,11 @@ storeInfosArray = jsonArray.get("data")
 print("WiFI count -> " + str(len(storeInfosArray)))
 
 # mongoDB 접속
-client = pymongo.MongoClient("mongodb://root:mongodb@172.30.1.70:27017")
+client = pymongo.MongoClient("mongodb://" + os.environ['DB_USER'] + ":" + os.environ['DB_PASS']
+                              + "@" + os.environ['DB_URL'])
 # DB내 database 접속
-db = client.get_database('kimhae')
-targetDb = db.wifi
+db = client.get_database(os.environ['DB_DATABASE'])
+targetDb = db[os.environ['DB_COLLECTION']]
 
 # 기존 DB 데이터 전체 삭제
 targetDb.remove({ });

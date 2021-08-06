@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: kimhae
+---
+# Container Registry 암호
+apiVersion: v1
+data:
+ .dockerconfigjson: eyJhdXRocyI6eyIxNzIuMzAuMS43MCI6eyJ1c2VybmFtZSI6Im1oY2hvIiwicGFzc3dvcmQiOiIxUTJ3M2U0ciIsImVtYWlsIjoibWhjaG9AY2xvdWZsYWtlLmNvbSIsImF1dGgiOiJiV2hqYUc4Nk1WRXlkek5sTkhJPSJ9fX0=
+kind: Secret
+metadata:
+ name: harbor
+ namespace: kimhae
+type: kubernetes.io/dockerconfigjson
+---
+# 환경 변수 정의
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: db-config
+ namespace: kimhae
+data:
+ DB_URL: 172.30.1.70:27017
+ DB_USER: root
+ DB_PASS: mongodb
+ DB_DATABASE: kimhae
+ DB_COLLECTION: wifi

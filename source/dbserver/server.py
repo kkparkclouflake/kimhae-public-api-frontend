@@ -1,3 +1,4 @@
+import os
 import pymongo 
 from flask import Flask, jsonify
 import json
@@ -12,10 +13,11 @@ class JSONEncoder(json.JSONEncoder):
 app = Flask(__name__)
 
 # mongoDB 접속
-client = pymongo.MongoClient("mongodb://root:mongodb@172.30.1.70:27017")
-db = client.get_database('kimhae')
+client = pymongo.MongoClient("mongodb://" + os.environ['DB_USER'] + ":" + os.environ['DB_PASS']
+                              + "@" + os.environ['DB_URL'])
 # DB내 database 접속
-targetDb = db.wifi
+db = client.get_database(os.environ['DB_DATABASE'])
+targetDb = db[os.environ['DB_COLLECTION']]
 
 @app.route('/wifi')
 def wifi():
